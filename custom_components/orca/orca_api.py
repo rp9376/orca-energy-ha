@@ -181,8 +181,8 @@ class OrcaApi:
         # if at least one of the tags in the list returns a valid value,
         # we can assume the circuit is configured and should be included in the final config.
         circuit_tags = {
-            1: ["2_Shema_MK1", "2_Shema_DK1"],
-            2: ["2_Shema_MK2", "2_Shema_DK2"],
+            1: ["2_Shema_MK1", "2_Shema_DK1", "2_PogojPGDT_Shema_OK1"],
+            2: ["2_Shema_MK2", "2_Shema_DK2", "2_PogojPGDT_Shema_OK2"],
             3: ["2_Shema_SOLAR"],
             4: ["2_Shema_SV"],
             5: ["2_Shema_ZALOG"],

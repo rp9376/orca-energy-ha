@@ -949,6 +949,17 @@
     enabled: false
   heating_circuit: 99
 
+- tag: 2_PogojPGDT_Shema_OK1
+  id: shema1_3
+  name:
+    en: ""
+    si: ""
+  description: "Indicates presence of HC 1 - present also on newer orca models"
+  type: "boolean"
+  adjustable:
+    enabled: false
+  heating_circuit: 99
+
 - tag: 2_Shema_MK2
   id: shema2_1
   name:
@@ -961,11 +972,22 @@
   heating_circuit: 99
 
 - tag: 2_Shema_DK2
-  id: shema1_2_2
+  id: shema2_2
   name:
     en: ""
     si: ""
-  description: "Indicates presence of HC 1"
+  description: "Indicates presence of HC 2"
+  type: "boolean"
+  adjustable:
+    enabled: false
+  heating_circuit: 99
+
+- tag: 2_PogojPGDT_Shema_OK2
+  id: shema2_3
+  name:
+    en: ""
+    si: ""
+  description: "Indicates presence of HC 2 - present also on newer orca models"
   type: "boolean"
   adjustable:
     enabled: false
