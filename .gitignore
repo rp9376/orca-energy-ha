@@ -1,0 +1,11 @@
+# Python compiled files
+*.pyc
+__pycache__/
+
+
+
+# Tag dump files in development resources
+development_resources/dump_all/tag_dump_*.txt
+
+# Stored authentication token
+development_resources/dump_all/.orca_token
