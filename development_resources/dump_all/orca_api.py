@@ -28,7 +28,7 @@ class OrcaApi:
         raw_data = ""
         for uri in self.generate_uri(self.config.keys()):
             url = f'http://{self.host}{uri}'
-            raw_data += str(self.fetch_data(url))    
+            raw_data += str(self.fetch_data(url))
             time.sleep(1)
         return raw_data
 
@@ -56,13 +56,13 @@ class OrcaApi:
                 time.sleep(60)
                 return
             raise Exception(f'Authentication failed. Message from server: {auth_resp}')
-        
+
         OrcaApi.token = re.search(r'IDALToken=([^\s]+)', auth_resp)[1]
-    
+
     def fetch_data(self, url, test=False):
         _LOGGER.debug(f'Fetching data from url {url}')
         cookies = {'IDALToken': OrcaApi.token}
-        
+
         try:
             resp = requests.get(url, cookies=cookies)
             data_raw = resp.text
@@ -73,17 +73,16 @@ class OrcaApi:
         if '#E_NEED_LOGIN' in data_raw:
             _LOGGER.debug('Need to authenticate..')
             self.auth()
-            self.fetch_data(url, test=test)
-            return
+            return self.fetch_data(url, test=test)
 
         if 'E_UNKNOWNTAG' in data_raw and test is True:
             _LOGGER.debug('unknown tag.')
         elif '#E_' in data_raw:
             print(f'Error while retrieving data. Response: {data_raw}')
-    
-        print(data_raw)
+
+        print("Data fetched successfully.")
         return data_raw
-            
+
     @staticmethod
     def generate_uri(tags: list) -> list:
         params = ''
