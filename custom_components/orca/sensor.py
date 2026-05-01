@@ -28,7 +28,7 @@ async def async_setup_entry(
     for unique_id, tag_value in coordinator.data.items():
         if (
             tag_value.config.type in ["float", "multimode"]
-            and not tag_value.config.adjustable.enabled
+            and (not tag_value.config.adjustable.enabled or tag_value.config.type == "multimode")
             and tag_value.config.id not in EXCLUDED_IDS
         ):
             entities.append(OrcaSensor(coordinator, unique_id))
